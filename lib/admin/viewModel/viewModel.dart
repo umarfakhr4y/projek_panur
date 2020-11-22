@@ -60,22 +60,19 @@ Future getSingleDataKaryawan(String id) async {
   }
 }
 
-// Future getSingleDataKaryawan(String id) async {
-//   try {
-//     http.Response hasil = await http.get(
-//         Uri.encodeFull(
-//             "https://absensi-project.herokuapp.com/api/v1/user/${id}"),
-//         headers: {"Accept": "application/json"});
-
-//     if (hasil.statusCode == 200) {
-//       print("Sukses menampilkan single data");
-//       final data = allKaryawanFromJson(hasil.body);
-//       return data;
-//     } else {
-//       print("Gagal menampikan single data");
-//       return null;
-//     }
-//   } catch (e) {
-//     print("Error pada catch $e");
-//   }
-// }
+Future deleteKaryawan(String id) async {
+  try {
+    var url = "https://absensi-project.herokuapp.com/api/v1/user/hapus/${id}";
+    var hasil = await http.get(url);
+    if (hasil.statusCode == 200) {
+      print("Sukses Delete data");
+      return true;
+    } else {
+      print(hasil);
+      print("Gagal Delete data");
+      return false;
+    }
+  } catch (e) {
+    print("Error pada catch $e");
+  }
+}
