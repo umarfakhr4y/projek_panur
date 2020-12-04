@@ -111,6 +111,39 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
       return singleKaryawan['absen_masuk'].isNotEmpty
           ? Column(
               children: <Widget>[
+                Container(
+                  padding: EdgeInsets.all(displayWidth(context) * 0.10),
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                  decoration: BoxDecoration(
+                      color: Colors.teal[300],
+                      borderRadius:
+                          BorderRadius.circular(displayWidth(context) * 0.10)),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Column(
+                      children: <Widget>[
+                        RichText(
+                          text: TextSpan(
+                            text: 'Nama Karyawan : ',
+                            style: TextStyle(
+                                color: Colors.red[300],
+                                fontWeight: FontWeight.bold,
+                                fontSize: displayWidth(context) * 0.04),
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: "'" + singleKaryawan['name'] + "'",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: displayWidth(context) * 0.04,
+                                      color: Colors.teal)),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 Expanded(
                     child: ListView.builder(
                   itemCount: singleKaryawan['absen_masuk'].length,
@@ -197,7 +230,7 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                           text: TextSpan(
                             text: 'Data Tidak Tersedia untuk Karyawan ',
                             style: TextStyle(
-                                color: Colors.black,
+                                color: Colors.red[300],
                                 fontWeight: FontWeight.bold,
                                 fontSize: displayWidth(context) * 0.04),
                             children: <TextSpan>[
