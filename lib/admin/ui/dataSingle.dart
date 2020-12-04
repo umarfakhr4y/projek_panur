@@ -112,56 +112,31 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
           ? Column(
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.all(displayWidth(context) * 0.10),
+                  padding: EdgeInsets.only(
+                      left: displayWidth(context) * 0.04,
+                      top: displayWidth(context) * 0.07,
+                      bottom: displayWidth(context) * 0.07,
+                      right: displayWidth(context) * 0.10),
                   margin:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
                       color: Colors.teal[300],
                       borderRadius:
-                          BorderRadius.circular(displayWidth(context) * 0.10)),
+                          BorderRadius.circular(displayWidth(context) * 0.07)),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        RichText(
-                          text: TextSpan(
-                            text: 'Nama Karyawan : ',
-                            style: TextStyle(
-                                color: Colors.red[300],
-                                fontWeight: FontWeight.bold,
-                                fontSize: displayWidth(context) * 0.04),
-                            children: <TextSpan>[
-                              TextSpan(
-                                  text: "'" + singleKaryawan['name'] + "'",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: displayWidth(context) * 0.04,
-                                      color: Colors.teal)),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Expanded(
-                    child: ListView.builder(
-                  itemCount: singleKaryawan['absen_masuk'].length,
-                  itemBuilder: (context, i) {
-                    var data = singleKaryawan["absen_masuk"][i];
-                    return Card(
-                      elevation: 8,
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 10, vertical: 6),
-                      child: ListTile(
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                        title: Text(
-                          data['tanggal'].toString(),
-                          // singleKaryawan['absen_masuk'][0].tanggal.toString(),
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Column(
+                        Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Row(
@@ -171,10 +146,12 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                                   color: Colors.greenAccent,
                                 ),
                                 Expanded(
-                                    child: Text("Absen Hadir : " +
-                                        singleKaryawan['absen_masuk'][i]
-                                                ['jam_masuk']
-                                            .toString())),
+                                    child: Text(
+                                  "Nama Karyawan : " + singleKaryawan['name'],
+                                  style: TextStyle(
+                                    fontSize: displayWidth(context) * 0.04,
+                                  ),
+                                )),
                               ],
                             ),
                             Row(
@@ -183,25 +160,93 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                                   Icons.arrow_right,
                                   color: Colors.greenAccent,
                                 ),
-                                Text('Absen Pulang : ' +
-                                    singleKaryawan['absen_masuk'][0]
-                                            ['jam_pulang']
-                                        .toString()),
+                                Text(
+                                  "Email Karyawan : " + singleKaryawan['email'],
+                                  style: TextStyle(
+                                    fontSize: displayWidth(context) * 0.04,
+                                  ),
+                                ),
                               ],
                             ),
                           ],
                         ),
-                        // trailing: Container(
-                        //   child: singleKaryawan['absen_masuk'][i]['jam_masuk'] >=
-                        //           todayDate
-                        //       ? absenStatusTerlambat()
-                        //       : absenStatusHadir(),
-                        // ),
-                        onTap: () {},
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: displayWidth(context) * 0.02,
                       ),
-                    );
-                  },
-                )),
+                      Text(
+                        "Data Harian Karyawan",
+                        style: TextStyle(
+                            fontSize: displayWidth(context) * 0.04,
+                            color: Colors.black),
+                      ),
+                      Expanded(
+                          child: ListView.builder(
+                        itemCount: singleKaryawan['absen_masuk'].length,
+                        itemBuilder: (context, i) {
+                          var data = singleKaryawan["absen_masuk"][i];
+                          return Card(
+                            elevation: 8,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 6),
+                            child: ListTile(
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 10),
+                              title: Text(
+                                data['tanggal'].toString(),
+                                // singleKaryawan['absen_masuk'][0].tanggal.toString(),
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.arrow_right,
+                                        color: Colors.greenAccent,
+                                      ),
+                                      Expanded(
+                                          child: Text("Absen Hadir : " +
+                                              singleKaryawan['absen_masuk'][i]
+                                                      ['jam_masuk']
+                                                  .toString())),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.arrow_right,
+                                        color: Colors.greenAccent,
+                                      ),
+                                      Text('Absen Pulang : ' +
+                                          singleKaryawan['absen_masuk'][0]
+                                                  ['jam_pulang']
+                                              .toString()),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              // trailing: Container(
+                              //   child: singleKaryawan['absen_masuk'][i]['jam_masuk'] >=
+                              //           todayDate
+                              //       ? absenStatusTerlambat()
+                              //       : absenStatusHadir(),
+                              // ),
+                              onTap: () {},
+                            ),
+                          );
+                        },
+                      ))
+                    ],
+                  ),
+                ),
                 RaisedButton.icon(
                     color: Colors.red,
                     onPressed: () {
