@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:project_coba/admin/ui/uis.dart';
+import 'package:project_coba/auth/login.dart';
 import 'package:project_coba/main.dart';
 import 'user/ui/home.dart';
 import 'package:project_coba/main.dart';
@@ -17,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         Duration(seconds: 3),
         () => Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => Admin())));
+            MaterialPageRoute(builder: (BuildContext context) => Login())));
   }
 
   @override

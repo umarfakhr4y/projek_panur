@@ -1,9 +1,12 @@
-// import 'dart:convert';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:project_coba/admin/ui/uis.dart';
 import 'login.dart';
-// import 'package:tutorial_app/network_utils/api.dart';
+// import 'package:project_coba/network_utils/api.dart';
 import 'package:project_coba/user/ui/home.dart';
+import 'package:project_coba/user/viewModels/view_models.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+// import 'loginAdmin.dart';
 
 class LoginAdmin extends StatefulWidget {
   @override
@@ -11,10 +14,65 @@ class LoginAdmin extends StatefulWidget {
 }
 
 class _LoginAdminState extends State<LoginAdmin> {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
   bool _isLoading = false;
+  String msg;
+
   final _formKey = GlobalKey<FormState>();
-  var email;
-  var password;
+  void login() {
+    loginUser(email.text, password.text).then((value) {
+      setState(() {
+        _isLoading = true;
+      });
+      setState(() {
+        if (value == true) {
+          // msg = "Success";
+          AlertDialog alertDialog = AlertDialog(
+            content: Container(
+              height: 100.0,
+              child: Column(
+                children: [
+                  Text("Login Berhasil"),
+                  RaisedButton(
+                    child: Text("OK"),
+                    onPressed: () => Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => Admin()),
+                      (Route<dynamic> route) => false,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+          showDialog(context: context, child: alertDialog);
+        } else {
+          AlertDialog alertDialog = AlertDialog(
+            content: Container(
+              height: 100.0,
+              child: Column(
+                children: [
+                  Text("Login gagal"),
+                  RaisedButton(
+                    child: Text("OK"),
+                    onPressed: () => Navigator.pop(context),
+                  )
+                ],
+              ),
+            ),
+          );
+          showDialog(context: context, child: alertDialog);
+        }
+      });
+    });
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  var emailvalid;
+  var passwordvalid;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   _showMsg(msg) {
     final snackBar = SnackBar(
@@ -58,6 +116,7 @@ class _LoginAdminState extends State<LoginAdmin> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               TextFormField(
+                                controller: email,
                                 style: TextStyle(color: Color(0xFF000000)),
                                 cursorColor: Color(0xFF9b9b9b),
                                 keyboardType: TextInputType.text,
@@ -76,11 +135,12 @@ class _LoginAdminState extends State<LoginAdmin> {
                                   if (emailValue.isEmpty) {
                                     return 'Please enter email';
                                   }
-                                  email = emailValue;
+                                  emailvalid = emailValue;
                                   return null;
                                 },
                               ),
                               TextFormField(
+                                controller: password,
                                 style: TextStyle(color: Color(0xFF000000)),
                                 cursorColor: Color(0xFF9b9b9b),
                                 keyboardType: TextInputType.text,
@@ -100,7 +160,7 @@ class _LoginAdminState extends State<LoginAdmin> {
                                   if (passwordValue.isEmpty) {
                                     return 'Please enter some text';
                                   }
-                                  password = passwordValue;
+                                  passwordvalid = passwordValue;
                                   return null;
                                 },
                               ),
@@ -111,9 +171,7 @@ class _LoginAdminState extends State<LoginAdmin> {
                                     padding: EdgeInsets.only(
                                         top: 8, bottom: 8, left: 10, right: 10),
                                     child: Text(
-                                      _isLoading
-                                          ? 'Proccessing...'
-                                          : 'LoginAdmin',
+                                      _isLoading ? 'Proccessing...' : 'Login',
                                       textDirection: TextDirection.ltr,
                                       style: TextStyle(
                                         color: Colors.white,
@@ -130,7 +188,8 @@ class _LoginAdminState extends State<LoginAdmin> {
                                           new BorderRadius.circular(20.0)),
                                   onPressed: () {
                                     if (_formKey.currentState.validate()) {
-                                      // loginAdmin();
+                                      login();
+                                      print('login dipencet');
                                     }
                                   },
                                 ),
@@ -150,7 +209,7 @@ class _LoginAdminState extends State<LoginAdmin> {
                                   builder: (context) => Login()));
                         },
                         child: Text(
-                          'Login As Employee',
+                          'Login As Karyawan',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 15.0,
@@ -169,34 +228,30 @@ class _LoginAdminState extends State<LoginAdmin> {
       ),
     );
   }
-  // void _loginAdmin() async{
+
+  // void _login() async {
   //   setState(() {
   //     _isLoading = true;
   //   });
-  //   var data = {
-  //     'email' : email,
-  //     'password' : password
-  //   };
+  //   var data = {'email': email, 'password': password};
 
-  //   var res = await Network().authData(data, '/loginAdmin');
+  //   var res = await Network().authData(data, '/login');
   //   var body = json.decode(res.body);
-  //   if(body['success']){
-  //     SharedPreferences localStorage = await SharedPreferences.getInstance();
-  //     localStorage.setString('token', json.encode(body['token']));
-  //     localStorage.setString('user', json.encode(body['user']));
+
+  //   if (body['success']) {
+  // SharedPreferences localStorage = await SharedPreferences.getInstance();
+  // localStorage.setString('token', json.encode(body['token']));
+  // localStorage.setString('user', json.encode(body['user']));
   //     Navigator.push(
-  //         context,
-  //         new MaterialPageRoute(
-  //             builder: (context) => Home()
-  //         ),
+  //       context,
+  //       new MaterialPageRoute(builder: (context) => Home()),
   //     );
-  //   }else{
+  //   } else {
   //     _showMsg(body['message']);
   //   }
 
   //   setState(() {
   //     _isLoading = false;
   //   });
-
   // }
 }
