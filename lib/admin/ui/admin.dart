@@ -4,7 +4,7 @@ void main() {
   runApp(new MaterialApp(
     debugShowCheckedModeBanner: false,
     home: SplashScreen(),
-    theme: ThemeData(fontFamily: 'Varela'),
+    theme: ThemeData(fontFamily: 'Kanit'),
   ));
 }
 

@@ -53,6 +53,8 @@ class _AbsenHarianState extends State<AbsenHarian> {
                         children: [
                           Text('Daftar Karyawan',
                               style: TextStyle(
+                                fontFamily: 'Kanit',
+
                                 // fontWeight: FontWeight.w600,
                                 color: Colors.white,
                                 fontSize: displayWidth(context) * 0.09,

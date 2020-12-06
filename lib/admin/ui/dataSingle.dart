@@ -12,6 +12,7 @@ class DataSingleAbsen extends StatefulWidget {
 class _DataSingleAbsenState extends State<DataSingleAbsen> {
   Map<String, dynamic> singleKaryawan;
   DateTime todayDate;
+  static var startShift = DateTime.now();
   // TimeOfDay waktuStatus = TimeOfDay(hour: 7, minute: 0);
 
   // List singleKaryawan = List();
@@ -122,13 +123,13 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
+                          color: Colors.grey.withOpacity(0.7),
                           spreadRadius: 5,
                           blurRadius: 7,
                           offset: Offset(0, 3), // changes position of shadow
                         ),
                       ],
-                      color: Colors.teal[300],
+                      color: Colors.teal[400],
                       borderRadius:
                           BorderRadius.circular(displayWidth(context) * 0.07)),
                   child: Align(
@@ -144,12 +145,13 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                                 Icon(
                                   Icons.arrow_right,
                                   color: Colors.greenAccent,
+                                  size: displayWidth(context) * 0.07,
                                 ),
                                 Expanded(
                                     child: Text(
                                   "Nama Karyawan : " + singleKaryawan['name'],
                                   style: TextStyle(
-                                    fontSize: displayWidth(context) * 0.04,
+                                    fontSize: displayWidth(context) * 0.035,
                                   ),
                                 )),
                               ],
@@ -159,11 +161,12 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                                 Icon(
                                   Icons.arrow_right,
                                   color: Colors.greenAccent,
+                                  size: displayWidth(context) * 0.07,
                                 ),
                                 Text(
                                   "Email Karyawan : " + singleKaryawan['email'],
                                   style: TextStyle(
-                                    fontSize: displayWidth(context) * 0.04,
+                                    fontSize: displayWidth(context) * 0.035,
                                   ),
                                 ),
                               ],
@@ -181,9 +184,9 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                         height: displayWidth(context) * 0.02,
                       ),
                       Text(
-                        "Data Harian Karyawan",
+                        "Data Absen Harian Karyawan",
                         style: TextStyle(
-                            fontSize: displayWidth(context) * 0.04,
+                            fontSize: displayWidth(context) * 0.03,
                             color: Colors.black),
                       ),
                       Expanded(
@@ -233,12 +236,14 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                                   ),
                                 ],
                               ),
-                              // trailing: Container(
-                              //   child: singleKaryawan['absen_masuk'][i]['jam_masuk'] >=
-                              //           todayDate
-                              //       ? absenStatusTerlambat()
-                              //       : absenStatusHadir(),
-                              // ),
+                              // trailing: absenStatusTerlambat,
+                              trailing: Container(
+                                child: singleKaryawan['absen_masuk'][i]
+                                            ['jam_masuk']
+                                        .isAfter(todayDate)
+                                    ? absenStatusTerlambat()
+                                    : absenStatusHadir(),
+                              ),
                               onTap: () {},
                             ),
                           );
