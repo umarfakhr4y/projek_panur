@@ -94,7 +94,7 @@ class _AbsenPulangState extends State<AbsenPulang> {
                                   ),
                                   child: Padding(
                                     padding: EdgeInsets.all(
-                                        displayWidth(context) * 0.30),
+                                        displayWidth(context) * 0.25),
                                     child: Text(
                                       "Tap Here",
                                       style: TextStyle(

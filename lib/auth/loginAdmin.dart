@@ -104,10 +104,17 @@ class _LoginAdminState extends State<LoginAdmin> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text("Admin", style: TextStyle(
-                      fontSize: 40,
-                      color: Colors.white,
-                    ),),
+                    Text(
+                      "Login Admin",
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontFamily: 'Kanit',
+                        color: Colors.white,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Card(
                       elevation: 4.0,
                       color: Colors.white,

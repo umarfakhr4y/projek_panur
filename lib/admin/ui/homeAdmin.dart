@@ -125,64 +125,6 @@ class _HomeAdminState extends State<HomeAdmin> {
                                         ],
                                       ),
                                     ])),
-                            Container(
-                                width: displayWidth(context) * 0.4,
-                                height: displayWidth(context) * 0.2,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(25),
-                                    gradient: LinearGradient(
-                                        begin: Alignment.topRight,
-                                        end: Alignment.bottomLeft,
-                                        colors: [
-                                          Colors.teal,
-                                          Colors.teal[200]
-                                        ])),
-                                margin: EdgeInsets.fromLTRB(
-                                    displayWidth(context) * 0.037,
-                                    displayWidth(context) * 0.025,
-                                    displayWidth(context) * 0.07,
-                                    displayWidth(context) * 0.025),
-                                padding: EdgeInsets.fromLTRB(
-                                    displayWidth(context) * 0.030,
-                                    displayWidth(context) * 0.017,
-                                    displayWidth(context) * 0.030,
-                                    displayWidth(context) * 0.0),
-                                child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: <Widget>[
-                                          InkWell(
-                                            onTap: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        TambahKaryawan()),
-                                              );
-                                            },
-                                            child: Container(
-                                                // padding: EdgeInsets.all(
-                                                //     displayWidth(context) * 0.30),
-                                                child: Padding(
-                                              padding: EdgeInsets.all(
-                                                  displayWidth(context) * 0.01),
-                                              child: Text(
-                                                "Tambah Karyawan",
-                                                style: TextStyle(
-                                                    fontSize:
-                                                        displayWidth(context) *
-                                                            0.04,
-                                                    color: Colors.white),
-                                              ),
-                                            )),
-                                          ),
-                                        ],
-                                      ),
-                                    ])),
                             // Container(
                             //     width: displayWidth(context) * 0.4,
                             //     height: displayWidth(context) * 0.2,
@@ -198,7 +140,7 @@ class _HomeAdminState extends State<HomeAdmin> {
                             //     margin: EdgeInsets.fromLTRB(
                             //         displayWidth(context) * 0.037,
                             //         displayWidth(context) * 0.025,
-                            //         displayWidth(context) * 0.0,
+                            //         displayWidth(context) * 0.07,
                             //         displayWidth(context) * 0.025),
                             //     padding: EdgeInsets.fromLTRB(
                             //         displayWidth(context) * 0.030,
@@ -215,7 +157,12 @@ class _HomeAdminState extends State<HomeAdmin> {
                             //             children: <Widget>[
                             //               InkWell(
                             //                 onTap: () {
-                            //                   print("Ubah Lokasi Ditekan");
+                            //                   Navigator.push(
+                            //                     context,
+                            //                     MaterialPageRoute(
+                            //                         builder: (context) =>
+                            //                             TambahKaryawan()),
+                            //                   );
                             //                 },
                             //                 child: Container(
                             //                     // padding: EdgeInsets.all(
@@ -224,7 +171,7 @@ class _HomeAdminState extends State<HomeAdmin> {
                             //                   padding: EdgeInsets.all(
                             //                       displayWidth(context) * 0.01),
                             //                   child: Text(
-                            //                     "Ubah Lokasi",
+                            //                     "Tambah Karyawan",
                             //                     style: TextStyle(
                             //                         fontSize:
                             //                             displayWidth(context) *
@@ -236,6 +183,59 @@ class _HomeAdminState extends State<HomeAdmin> {
                             //             ],
                             //           ),
                             //         ])),
+                            Container(
+                                width: displayWidth(context) * 0.4,
+                                height: displayWidth(context) * 0.2,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    gradient: LinearGradient(
+                                        begin: Alignment.topRight,
+                                        end: Alignment.bottomLeft,
+                                        colors: [
+                                          Colors.teal,
+                                          Colors.teal[200]
+                                        ])),
+                                margin: EdgeInsets.fromLTRB(
+                                    displayWidth(context) * 0.037,
+                                    displayWidth(context) * 0.025,
+                                    displayWidth(context) * 0.0,
+                                    displayWidth(context) * 0.025),
+                                padding: EdgeInsets.fromLTRB(
+                                    displayWidth(context) * 0.030,
+                                    displayWidth(context) * 0.017,
+                                    displayWidth(context) * 0.030,
+                                    displayWidth(context) * 0.0),
+                                child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          InkWell(
+                                            onTap: () {
+                                              print("Ubah Lokasi Ditekan");
+                                            },
+                                            child: Container(
+                                                // padding: EdgeInsets.all(
+                                                //     displayWidth(context) * 0.30),
+                                                child: Padding(
+                                              padding: EdgeInsets.all(
+                                                  displayWidth(context) * 0.01),
+                                              child: Text(
+                                                "Ubah Lokasi Absen",
+                                                style: TextStyle(
+                                                    fontSize:
+                                                        displayWidth(context) *
+                                                            0.04,
+                                                    color: Colors.white),
+                                              ),
+                                            )),
+                                          ),
+                                        ],
+                                      ),
+                                    ])),
                           ],
                         ),
                       ),

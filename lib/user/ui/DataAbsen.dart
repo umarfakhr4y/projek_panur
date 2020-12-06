@@ -42,7 +42,7 @@ class _DataAbsenState extends State<DataAbsen> {
                             children: <Widget>[
                               Text('Total Absen',
                                   style: TextStyle(
-                                    fontSize: displayWidth(context) * 0.07,
+                                    fontSize: displayWidth(context) * 0.06,
                                     color: Colors.white,
                                     height: 2.0,
                                   )),
@@ -57,7 +57,7 @@ class _DataAbsenState extends State<DataAbsen> {
                                 alignment: Alignment.bottomRight,
                                 child: Text("20",
                                     style: TextStyle(
-                                      fontSize: displayWidth(context) * 0.11,
+                                      fontSize: displayWidth(context) * 0.09,
                                       color: Colors.white,
                                       // height: 2.0,
                                     )),
@@ -92,7 +92,7 @@ class _DataAbsenState extends State<DataAbsen> {
                             children: <Widget>[
                               Text('Total Absen',
                                   style: TextStyle(
-                                    fontSize: displayWidth(context) * 0.07,
+                                    fontSize: displayWidth(context) * 0.06,
                                     color: Colors.white,
                                     height: 2.0,
                                   )),
@@ -100,7 +100,7 @@ class _DataAbsenState extends State<DataAbsen> {
                                 'Terlambat',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: displayWidth(context) * 0.07,
+                                  fontSize: displayWidth(context) * 0.06,
                                 ),
                               )
                             ],
@@ -109,7 +109,7 @@ class _DataAbsenState extends State<DataAbsen> {
                             alignment: Alignment.bottomRight,
                             child: Text("5",
                                 style: TextStyle(
-                                  fontSize: displayWidth(context) * 0.11,
+                                  fontSize: displayWidth(context) * 0.09,
                                   color: Colors.white,
                                   // height: 2.0,
                                 )),
