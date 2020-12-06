@@ -88,7 +88,7 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
       return Column(
         children: <Widget>[
           Icon(
-            Icons.watch,
+            Icons.cancel,
             color: Colors.red,
           ),
           Text("Terlambat")
@@ -100,7 +100,7 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
       return Column(
         children: <Widget>[
           Icon(
-            Icons.watch_later,
+            Icons.check,
             color: Colors.green,
           ),
           Text("Tepat Waktu")
@@ -151,6 +151,7 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                                     child: Text(
                                   "Nama Karyawan : " + singleKaryawan['name'],
                                   style: TextStyle(
+                                    fontFamily: "Kanit",
                                     fontSize: displayWidth(context) * 0.035,
                                   ),
                                 )),
@@ -166,6 +167,7 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                                 Text(
                                   "Email Karyawan : " + singleKaryawan['email'],
                                   style: TextStyle(
+                                    fontFamily: "Kanit",
                                     fontSize: displayWidth(context) * 0.035,
                                   ),
                                 ),
@@ -228,22 +230,26 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                                         Icons.arrow_right,
                                         color: Colors.greenAccent,
                                       ),
-                                      Text('Absen Pulang : ' +
-                                          singleKaryawan['absen_masuk'][0]
-                                                  ['jam_pulang']
-                                              .toString()),
+                                      Text(singleKaryawan['absen_masuk'][0]
+                                                  ['jam_pulang'] ==
+                                              null
+                                          ? "Absen Pulang : Data Belum Tersedia"
+                                          : "Absen Pulang : " +
+                                              singleKaryawan['absen_masuk'][0]
+                                                      ['jam_pulang']
+                                                  .toString()),
                                     ],
                                   ),
                                 ],
                               ),
-                              // trailing: absenStatusTerlambat,
-                              trailing: Container(
-                                child: singleKaryawan['absen_masuk'][i]
-                                            ['jam_masuk']
-                                        .isAfter(todayDate)
-                                    ? absenStatusTerlambat()
-                                    : absenStatusHadir(),
-                              ),
+                              // trailing: singleKaryawan['absen_masuk'][i]['jam_masuk']
+                              // trailing: Container(
+                              //   child: singleKaryawan['absen_masuk'][i]
+                              //               ['jam_masuk']
+                              //           .isAfter(todayDate)
+                              //       ? absenStatusTerlambat()
+                              //       : absenStatusHadir(),
+                              // ),
                               onTap: () {},
                             ),
                           );
