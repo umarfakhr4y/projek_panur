@@ -25,6 +25,34 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
       });
     });
   }
+  void _showDialog() {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("Hapus Karyawan"),
+          content: new Text("Anda Yakin Ingin Menghapus Karyawan?"),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            new FlatButton(
+              child: new Text("Close"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            FlatButton(
+              child: new Text("Yakin"),
+              onPressed: () {
+               hapusKaryawan(singleKaryawan['id'].toString());
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   void hapusKaryawan(String id) async {
     print(id);
@@ -255,7 +283,7 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                 RaisedButton.icon(
                     color: Colors.red,
                     onPressed: () {
-                      hapusKaryawan(singleKaryawan['id'].toString());
+                      _showDialog();
                       print('hapusdipencet');
                     },
                     icon: Icon(Icons.delete),
@@ -309,7 +337,8 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                 RaisedButton.icon(
                     color: Colors.red,
                     onPressed: () {
-                      hapusKaryawan(singleKaryawan['id'].toString());
+                      // hapusKaryawan(singleKaryawan['id'].toString());
+                      _showDialog();
                       print('hapusdipencet');
                     },
                     icon: Icon(Icons.delete),
