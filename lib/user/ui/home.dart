@@ -55,7 +55,7 @@ class _HomeState extends State<Home> {
         title: Text('Absen Hadir'),
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.notifications_off),
+        icon: Icon(Icons.home),
         title: Text('Absen Pulang'),
       ),
       BottomNavigationBarItem(
