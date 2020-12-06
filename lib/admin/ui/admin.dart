@@ -55,10 +55,16 @@ class _AdminState extends State<Admin> {
               padding: EdgeInsets.only(right: 20.0),
               child: GestureDetector(
                 onTap: () {
-                  setState(() {});
+                  setState(() {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => Login()),
+                      (Route<dynamic> route) => false,
+                    );
+                  });
                 },
                 child: Icon(
-                  Icons.replay,
+                  Icons.exit_to_app,
                   size: 26.0,
                 ),
               )),
