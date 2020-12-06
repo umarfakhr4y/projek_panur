@@ -25,6 +25,7 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
       });
     });
   }
+
   void _showDialog() {
     // flutter defined function
     showDialog(
@@ -45,7 +46,7 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
             FlatButton(
               child: new Text("Yakin"),
               onPressed: () {
-               hapusKaryawan(singleKaryawan['id'].toString());
+                hapusKaryawan(singleKaryawan['id'].toString());
               },
             ),
           ],
