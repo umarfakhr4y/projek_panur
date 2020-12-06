@@ -35,7 +35,7 @@ class _AbsenHadirState extends State<AbsenHadir> {
               children: [
                 Text('Welcome User!',
                     style: TextStyle(
-                      // fontWeight: FontWeight.w600,
+                      fontFamily: 'Kanit',
                       color: Colors.white,
                       fontSize: displayWidth(context) * 0.09,
                     )),
@@ -55,7 +55,7 @@ class _AbsenHadirState extends State<AbsenHadir> {
             child: ListView(
               children: <Widget>[
                 Container(
-                  height: displayHeight(context) * 0.503,
+                  height: displayHeight(context) * 0.490,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
@@ -73,9 +73,9 @@ class _AbsenHadirState extends State<AbsenHadir> {
                             ),
                             InkWell(
                               onTap: () {
-                                _getCurrentLocation();
-                                print(_getCurrentLocation());
-                                print("dipencet");
+                                // _getCurrentLocation();
+                                // print(_getCurrentLocation());
+                                print("absen hadir dipencet");
                               },
                               child: Container(
                                   // padding: EdgeInsets.all(
@@ -103,7 +103,7 @@ class _AbsenHadirState extends State<AbsenHadir> {
                                   ),
                                   child: Padding(
                                     padding: EdgeInsets.all(
-                                        displayWidth(context) * 0.30),
+                                        displayWidth(context) * 0.25),
                                     child: Text(
                                       "Tap Here",
                                       style: TextStyle(

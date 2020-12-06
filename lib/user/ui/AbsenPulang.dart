@@ -27,7 +27,7 @@ class _AbsenPulangState extends State<AbsenPulang> {
               children: [
                 Text('Hati - Hati Di Jalan!',
                     style: TextStyle(
-                      // fontWeight: FontWeight.w600,
+                      fontFamily: 'Kanit',
                       color: Colors.white,
                       fontSize: displayWidth(context) * 0.09,
                     )),
