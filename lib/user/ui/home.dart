@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 // import 'package:shared_preferences/shared_preferences.dart';
 // import 'splashscreen.dart';
 import 'package:project_coba/user/ui/uis.dart';
+import '../../auth/login.dart';
 
 void main() {
   runApp(new MaterialApp(
@@ -82,11 +83,16 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.only(right: 20.0),
               child: GestureDetector(
                 onTap: () {
-                  // logout();
-                  print('logout dipencet');
+                  setState(() {
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(builder: (context) => Login()),
+                      (Route<dynamic> route) => false,
+                    );
+                  });
                 },
                 child: Icon(
-                  Icons.replay,
+                  Icons.exit_to_app,
                   size: 26.0,
                 ),
               )),
