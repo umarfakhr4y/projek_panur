@@ -12,6 +12,7 @@ class DataSingleAbsen extends StatefulWidget {
 class _DataSingleAbsenState extends State<DataSingleAbsen> {
   Map<String, dynamic> singleKaryawan;
   DateTime todayDate;
+  static var startShift = DateTime.now();
   // TimeOfDay waktuStatus = TimeOfDay(hour: 7, minute: 0);
 
   // List singleKaryawan = List();
@@ -235,12 +236,14 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                                   ),
                                 ],
                               ),
-                              // trailing: Container(
-                              //   child: singleKaryawan['absen_masuk'][i]['jam_masuk'] >=
-                              //           todayDate
-                              //       ? absenStatusTerlambat()
-                              //       : absenStatusHadir(),
-                              // ),
+                              // trailing: absenStatusTerlambat,
+                              trailing: Container(
+                                child: singleKaryawan['absen_masuk'][i]
+                                            ['jam_masuk']
+                                        .isAfter(todayDate)
+                                    ? absenStatusTerlambat()
+                                    : absenStatusHadir(),
+                              ),
                               onTap: () {},
                             ),
                           );
