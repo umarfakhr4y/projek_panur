@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:ui';
 import 'package:flutter/material.dart';
+// import 'package:html/dom.dart';
 import 'package:project_coba/admin/ui/uis.dart';
 import 'login.dart';
 // import 'package:project_coba/network_utils/api.dart';
@@ -102,6 +104,10 @@ class _LoginAdminState extends State<LoginAdmin> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    Text("Admin", style: TextStyle(
+                      fontSize: 40,
+                      color: Colors.white,
+                    ),),
                     Card(
                       elevation: 4.0,
                       color: Colors.white,

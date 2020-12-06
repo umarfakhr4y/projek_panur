@@ -101,6 +101,10 @@ class _LoginState extends State<Login> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    Text("Karyawan", style: TextStyle(
+                      fontSize: 40,
+                      color: Colors.white,
+                    ),),
                     Card(
                       elevation: 4.0,
                       color: Colors.white,
