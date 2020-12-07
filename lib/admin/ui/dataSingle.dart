@@ -264,7 +264,7 @@ class _DataSingleAbsenState extends State<DataSingleAbsen> {
                                               null
                                           ? "Absen Pulang : Data Belum Tersedia"
                                           : "Absen Pulang : " +
-                                              singleKaryawan['absen_masuk'][0]
+                                              singleKaryawan['absen_pulang'][0]
                                                       ['jam_pulang']
                                                   .toString()),
                                     ],

@@ -6,4 +6,5 @@ import 'package:geolocator/geolocator.dart';
 
 part 'AbsenHadir.dart';
 part 'AbsenPulang.dart';
+part 'ProfilScreen.dart';
 part 'DataAbsen.dart';

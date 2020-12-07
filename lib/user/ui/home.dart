@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final _listPage = <Widget>[AbsenHadir(), AbsenPulang(), DataAbsen()];
+    final _listPage = <Widget>[AbsenHadir(), AbsenPulang(), DataAbsen(), ProfileScreen()];
 
     final _bottomNavBarItems = <BottomNavigationBarItem>[
       BottomNavigationBarItem(
@@ -56,12 +56,16 @@ class _HomeState extends State<Home> {
         title: Text('Absen Hadir'),
       ),
       BottomNavigationBarItem(
-        icon: Icon(Icons.home),
+        icon: Icon(Icons.outbox),
         title: Text('Absen Pulang'),
       ),
       BottomNavigationBarItem(
         icon: Icon(Icons.book),
         title: Text('Data Absen'),
+      ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.account_circle),
+        title: Text('Profile'),
       ),
     ];
 

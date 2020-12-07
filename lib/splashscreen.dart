@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
             //   color: Colors.white,
             // ),
             Image.asset(
-              'assets/logo.png',
+              'assets/icon/icon.png',
               width: 140,
             ),
             SizedBox(height: 24.0),

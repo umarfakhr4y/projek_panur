@@ -43,12 +43,14 @@ class _DataAbsenState extends State<DataAbsen> {
                               Text('Total Absen',
                                   style: TextStyle(
                                     fontSize: displayWidth(context) * 0.06,
+                                    fontFamily: "Kanit",
                                     color: Colors.white,
                                     height: 2.0,
                                   )),
                               Text(
                                 'Hadir',
                                 style: TextStyle(
+                                  fontFamily: "Kanit",
                                   color: Colors.white,
                                   fontSize: displayWidth(context) * 0.07,
                                 ),
@@ -57,6 +59,7 @@ class _DataAbsenState extends State<DataAbsen> {
                                 alignment: Alignment.bottomRight,
                                 child: Text("20",
                                     style: TextStyle(
+                                      fontFamily: "Kanit",
                                       fontSize: displayWidth(context) * 0.09,
                                       color: Colors.white,
                                       // height: 2.0,
@@ -93,6 +96,7 @@ class _DataAbsenState extends State<DataAbsen> {
                               Text('Total Absen',
                                   style: TextStyle(
                                     fontSize: displayWidth(context) * 0.06,
+                                    fontFamily: "Kanit",
                                     color: Colors.white,
                                     height: 2.0,
                                   )),
@@ -100,6 +104,7 @@ class _DataAbsenState extends State<DataAbsen> {
                                 'Terlambat',
                                 style: TextStyle(
                                   color: Colors.white,
+                                  fontFamily: "Kanit",
                                   fontSize: displayWidth(context) * 0.06,
                                 ),
                               )
@@ -110,6 +115,7 @@ class _DataAbsenState extends State<DataAbsen> {
                             child: Text("5",
                                 style: TextStyle(
                                   fontSize: displayWidth(context) * 0.09,
+                                  fontFamily: "Kanit",
                                   color: Colors.white,
                                   // height: 2.0,
                                 )),
